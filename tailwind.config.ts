@@ -11,6 +11,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        honey: "#FFC107",
+        earth: "#6B4226"
       },
     },
   },
