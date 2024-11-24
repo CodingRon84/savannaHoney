@@ -1,16 +1,38 @@
-// src\app\pages.tsx
+// src/app/pages.tsx
 
 import React from "react";
-import Navbar from "/src/app/components/Navbar";
+import Navbar from "../app/components/Navbar";
+import Hero from "./components/Hero";
+import AboutUs from "./components/AboutUs";
+import OurHoney from "./components/OurHoney";
+import Shop from "./components/Shop";
+import ContactUs from "./components/ContactUs";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center justify-center min-h-screen py-2 uppercase">
-        <h1>Welcome to Savannah Honey</h1>
-        <h2 className="lowercase"> https://www.instagram.com/savannahhoney_</h2>
-      </div>
+      <main className="scroll-smooth">
+        <section id="hero">
+          <Hero />
+        </section>
+        <section id="about">
+          <AboutUs />
+        </section>
+        <section id="honey">
+          <OurHoney />
+        </section>
+        <section id="shop">
+          <Shop />
+        </section>
+        <section id="contact">
+          <ContactUs />
+        </section>
+        <footer>
+          <Footer />
+        </footer>
+      </main>
     </>
   );
 }
