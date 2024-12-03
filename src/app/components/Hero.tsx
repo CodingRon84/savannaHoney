@@ -2,7 +2,6 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { ArrowDown } from "lucide-react";
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -21,7 +20,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative h-[50vh] w-full overflow-hidden">
+    <div className="relative h-screen w-full overflow-hidden">
       {/* Video Background */}
       <video
         ref={videoRef}
@@ -30,45 +29,45 @@ const Hero = () => {
         muted
         loop
         playsInline
-        poster="/api/placeholder/1920/1080" // placeholder - to replace with skeleton
+        poster="/placeholder.jpg" // Placeholder image for loading
       >
         <source src="/video/honey-clip2.mp4" type="video/mp4" />
+        <source src="/video/honey-clip2.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
 
-      {/* Gradient Overlay for better text visibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/50" />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
 
       {/* Hero Content */}
-      <div className="relative h-full flex flex-col items-center justify-center px-4">
-        <div className="text-center text-white max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
-            Welcome to Our Website
-          </h1>
-          <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto animate-fade-in-delay">
-            Discover amazing experiences and possibilities with us.
-          </p>
-          <div className="space-x-4 animate-fade-in-delay-2">
-            <button
-              onClick={scrollToContent}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300"
-            >
-              Get Started
-            </button>
-            <button className="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300">
-              Learn More
-            </button>
-          </div>
-        </div>
+      <div className="relative h-full flex flex-col items-center justify-center px-4 text-center">
+        {/* Main Heading */}
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in">
+          Discover the Sweetness of Nature
+        </h1>
 
-        {/* Animated Scroll Indicator */}
-        <button
-          onClick={scrollToContent}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white transition-transform hover:translate-y-1 cursor-pointer"
-          title="Scroll to Content"
-        >
-          <ArrowDown className="w-8 h-8 animate-bounce" />
-        </button>
+        {/* Subheading */}
+        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-delay">
+          Welcome to Savannah Honey, where every jar tells a story of purity,
+          sustainability, and family tradition. From the heart of Jamaica to
+          your table, savor the richness of untouched nature.
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-wrap justify-center space-x-4 animate-fade-in-delay-2">
+          <button
+            className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-yellow-300 shadow-md hover:shadow-lg"
+            onClick={() => (window.location.href = "#shop")}
+          >
+            Shop Now
+          </button>
+          {/* <button
+            className="bg-transparent border-2 border-white hover:bg-white hover:text-black text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-gray-300 shadow-md hover:shadow-lg"
+            onClick={() => window.location.href = "#about"}
+          >
+            Learn Our Story
+          </button> */}
+        </div>
       </div>
     </div>
   );
